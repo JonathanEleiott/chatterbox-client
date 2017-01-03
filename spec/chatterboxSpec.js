@@ -22,7 +22,7 @@ describe('chatterbox', function() {
       ajaxSpy.reset();
     });
 
-    xdescribe('sending', function() {
+    describe('sending', function() {
       it('should have a send method', function() {
         expect(app.send).to.be.ok;
       });
@@ -52,7 +52,7 @@ describe('chatterbox', function() {
 
     });
 
-    xdescribe('fetching', function() {
+    describe('fetching', function() {
       it('should have a fetch method', function() {
         expect(app.fetch).to.be.ok;
       });

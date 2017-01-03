@@ -28,6 +28,26 @@
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
     </div>
+    
+    <div id='roomSelect'></div>
+
+    <input type='text' class='inputMessage'/>
+    <button class='inputButton'>Enter Message</button>
+    <script>
+      $('.inputButton').click(function() {
+        
+        var message = {
+          username: window.location.search.slice(10),
+          text: $('.inputMessage').val(),
+          roomname: 'lobby'
+        };
+
+        app.send(message);
+
+        $('.inputMessage').val('');
+      });
+    </script>
     <div id="chats"></div>
+
   </body>
 </html>
