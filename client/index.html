@@ -27,9 +27,22 @@
     <div id="main">
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
-    </div>
     
-    <div id='roomSelect'></div>
+    <div id='roomSelect'>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Select Room</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#" class='newroom'>New Room</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).on('click', '.nameOfRoom', function() {
+        room = $(this).text();
+        console.log('nameOfRoom', room);
+        app.renderRoom(room);
+      });
+    </script>
 
     <input type='text' class='inputMessage'/>
     <button class='inputButton'>Enter Message</button>
@@ -39,7 +52,7 @@
         var message = {
           username: window.location.search.slice(10),
           text: $('.inputMessage').val(),
-          roomname: 'lobby'
+          roomname: room
         };
 
         app.send(message);
@@ -49,6 +62,17 @@
       });
     </script>
     <div id="chats"></div>
+    <script>
+      $(document).on('click', '.username', function() {
+        if (friends.indexOf($(this).text()) < 0) {
+          friends.push($(this).text());
+        } else {
+          var indexFriend = friends.indexOf($(this).text());
+          friends.splice(indexFriend, 1);
+        }
+      });
+    </script>
 
+    </div>
   </body>
 </html>
